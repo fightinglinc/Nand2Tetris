@@ -7,8 +7,8 @@ public class HackAssembler {
         SymbolTable st = new SymbolTable();
         Code c = new Code();
 
-        String filePath = "asmfile/Rect.asm";
-        String destPath = "asmfile/Rect.hack";
+        String filePath = "testfile/Add.asm";
+        String destPath = "testfile/Add.hack";
 
         try {
             File file = new File(destPath);
@@ -87,6 +87,22 @@ public class HackAssembler {
             }
             bufferedReader.close();
             bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Remove the last blank line
+        try {
+            RandomAccessFile raf = new RandomAccessFile(destPath, "rw");
+            long length = raf.length();
+            byte b;
+            do {
+                length -= 1;
+                raf.seek(length);
+                b = raf.readByte();
+            } while (b != 10 && length > 0);
+            raf.setLength(length);
+            raf.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
