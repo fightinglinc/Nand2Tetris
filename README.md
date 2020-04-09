@@ -6,3 +6,15 @@ Develop an assembler that translates Hack assembly programs into executable Hack
 - Code: translates each field into its corresponding binary value
 - SymbolTable: manages the symbol table
 - HackAssembler: initializes I/O files and drives the process.
+
+Usage
+Under the src file:
+```bash
+javac HackAssembler.java
+```
+
+This will create .class file for the project.
+Then use the following command to create the Xxx.hack file.
+```bash
+java HackAssembler Xxx.asm
+```
