@@ -7,8 +7,8 @@ public class HackAssembler {
         SymbolTable st = new SymbolTable();
         Code c = new Code();
 
-        String filePath = "testfile/Add.asm";
-        String destPath = "testfile/Add.hack";
+        String filePath = args[0];
+        String destPath = args[0].substring(0, args[0].length() - 3) + "hack";
 
         try {
             File file = new File(destPath);
